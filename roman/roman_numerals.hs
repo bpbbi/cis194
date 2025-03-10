@@ -1,0 +1,30 @@
+module Roman_numerals where
+
+convert :: Int -> String
+convert x 
+    | (-) x 1000000 >= 0 = "-M"   ++ (convert $ (-) x 1000000)
+    | (-) x 900000  >= 0 = "-C-M" ++ (convert $ (-) x 900000)
+    | (-) x 500000  >= 0 = "-D"   ++ (convert $ (-) x 500000)
+    | (-) x 400000  >= 0 = "-C-D" ++ (convert $ (-) x 400000)
+    | (-) x 100000  >= 0 = "-C"   ++ (convert $ (-) x 100000)
+    | (-) x 90000   >= 0 = "-X-C" ++ (convert $ (-) x 90000)
+    | (-) x 50000   >= 0 = "-L"   ++ (convert $ (-) x 50000)
+    | (-) x 40000   >= 0 = "-X-L" ++ (convert $ (-) x 40000)
+    | (-) x 10000   >= 0 = "-X"   ++ (convert $ (-) x 10000)
+    | (-) x 9000    >= 0 = "M-X"  ++ (convert $ (-) x 9000)
+    | (-) x 5000    >= 0 = "-V"   ++ (convert $ (-) x 5000)
+    | (-) x 4000    >= 0 = "M-V"  ++ (convert $ (-) x 4000)
+    | (-) x 1000    >= 0 = "M"    ++ (convert $ (-) x 1000)
+    | (-) x 900     >= 0  = "CM"  ++ (convert $ (-) x 900)
+    | (-) x 500     >= 0  = "D"   ++ (convert $ (-) x 500)
+    | (-) x 400     >= 0  = "CD"  ++ (convert $ (-) x 400)
+    | (-) x 100     >= 0  = "C"   ++ (convert $ (-) x 100)
+    | (-) x 90      >= 0  = "XC"  ++ (convert $ (-) x 90)
+    | (-) x 50      >= 0  = "L"   ++ (convert $ (-) x 50)
+    | (-) x 40      >= 0  = "XL"  ++ (convert $ (-) x 40)
+    | (-) x 10      >= 0  = "X"   ++ (convert $ (-) x 10)
+    | (-) x 9       >= 0  = "IX"  ++ (convert $ (-) x 9)
+    | (-) x 5       >= 0  = "V"   ++ (convert $ (-) x 5)
+    | (-) x 4       >= 0  = "IV"  ++ (convert $ (-) x 4)
+    | (-) x 1       >= 0  = "I"   ++ (convert $ (-) x 1)
+    |       x       == 0  = []
